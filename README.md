@@ -8,7 +8,7 @@ Will use current record detail [object and recordId] by default, but you can get
 
 All configurable through App Builder.
 
-<a href="https://githubsfdeploy.herokuapp.com?owner=mshanemc&repo=lightningLocationService">
+<a href="https://githubsfdeploy.herokuapp.com?owner=mshanemc&repo=lightningLocationServices">
   <img alt="Deploy to Salesforce"
        src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png"/>
 </a>
