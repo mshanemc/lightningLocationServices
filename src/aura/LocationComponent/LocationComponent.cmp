@@ -1,0 +1,33 @@
+<aura:component implements="force:hasRecordId, force:hasSObjectName, flexipage:availableForAllPageTypes" controller="LocationComponent">
+
+<!--stuff for design-->
+<aura:attribute name="time" type="string" required="true" default="load" access="global" description="load|user ; load for init, user for based on a user interaction"/>
+<aura:attribute name="updateField" type="string" required="true" access="global" default="Last_Location__c"/>
+<aura:attribute name="showLocation" type="boolean" required="true" default="false"	 access="global"/>
+<aura:attribute name="userButtonLabel" type="string" required="false" default="Set Location" access="global"/>
+
+<aura:attribute name="OverrideRecordId" type="string" access="global"/>
+<aura:attribute name="OverrideSObjectName" type="string" access="global"/>
+
+<!--internal-->
+<aura:attribute name="latlong" type="object" required="false"/>
+
+<aura:handler name="change" value="{!v.latlong}" action="{!c.locationChange}"/>
+
+<aura:if isTrue="{!and(v.latlong.latitude, v.time=='user')}">
+	<lightning:button variant="brand" label="{#v.userButtonLabel}" onclick="{!c.onDemand}"/>
+</aura:if>
+
+<c:LightningLocationService latlong="{!v.latlong}"/>
+
+<aura:if isTrue="{!and(v.showLocation, v.latlong)}">
+	<p>
+		<lightning:formattedNumber value="{!v.latlong.latitude}" maximumFractionDigits="5"/>,
+		<lightning:formattedNumber value="{!v.latlong.longitude}" maximumFractionDigits="5"/>
+	</p>
+</aura:if>
+
+
+<c:LightningErrorHandler aura:id="leh"/>
+
+</aura:component>

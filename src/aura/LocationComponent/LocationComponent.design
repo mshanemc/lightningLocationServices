@@ -1,0 +1,15 @@
+<design:component label="Location Component">
+	<design:attribute name="time" label="When" description="The location can be grabbed when the component loads, or on demand" datasource="load,user" default="load"/>
+
+	<design:attribute name="updateField" label="Field to Update" description="The field from the object that will be updated (use API name including __c if necessary"/>
+
+	<design:attribute name="showLocation" label="Show Coordinates"/>
+
+	<design:attribute name="OverrideRecordId" label="RecordId Override" description="Leave this field blank to use the recordId of the current record (object detail home)"/>
+
+	<design:attribute name="OverrideSObjectName" label="Object Name Override" description="Leave this field blank to use the current object (object detail home)"/>
+
+	<design:attribute name="userButtonLabel" label="Button Label" description="if you're using the on-demand (User, not Load) as your time, you can change the button text"/>
+
+
+</design:component>
